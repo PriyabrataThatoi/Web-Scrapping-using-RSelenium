@@ -3,7 +3,6 @@
 #=====================================
 install.packages('RSelenium')
 install.packages('dplyr')
-install.packages('rvest')
 library(RSelenium)
 library(dplyr)
 
@@ -58,8 +57,8 @@ b="]/a"
     #==========
     tryCatch({
       suppressMessages({
-    name<-remDr$findElement(using='xpath','//span[@class="cpuname"]')
-    nametext=as.character(name$getElementText()[1])
+      name<-remDr$findElement(using='xpath','//span[@class="cpuname"]')
+      nametext=as.character(name$getElementText()[1])
       })
     },
     error = function(e) {
@@ -74,7 +73,7 @@ b="]/a"
       bus<-remDr$findElement(using = 'xpath','//em[@class="left-desc-cpu"]/p[1]')
       bustext<-as.character(bus$getElementText()[1])
     
-    if(trimws(unlist(strsplit(bustext, ":"))[[1]])=='Bus Interface'){
+      if(trimws(unlist(strsplit(bustext, ":"))[[1]])=='Bus Interface'){
         bustext<-trimws(unlist(strsplit(bustext,':'))[[2]])
     }
     else {bustext = 'NA'} #This block handles missing hyperlinks
@@ -90,12 +89,12 @@ b="]/a"
     #============ 
     tryCatch({
       suppressMessages({
-        maxmem<-remDr$findElement(using='xpath','//em[@class="left-desc-cpu"]/p[2]')
-        maxtext<-as.character(maxmem$getElementText()[1])
-        if(trimws(unlist(strsplit(maxtext, ":"))[[1]])=='Max Memory Size'){
-        maxtext<-trimws(unlist(strsplit(maxtext,' '))[[4]])
+      maxmem<-remDr$findElement(using='xpath','//em[@class="left-desc-cpu"]/p[2]')
+      maxtext<-as.character(maxmem$getElementText()[1])
+      if(trimws(unlist(strsplit(maxtext, ":"))[[1]])=='Max Memory Size'){
+      maxtext<-trimws(unlist(strsplit(maxtext,' '))[[4]])
               }
-        else {maxtext = 'NA'}
+      else {maxtext = 'NA'}
                       })
                       },
       error = function(e) {
@@ -107,15 +106,15 @@ b="]/a"
     #============ 
     tryCatch({
       suppressMessages({
-    clock<-remDr$findElement(using = 'xpath','//em[@class="left-desc-cpu"]/p[3]')
-    clocktext<-as.character(clock$getElementText()[1])
-    if(trimws(unlist(strsplit(clocktext, ":"))[[1]])=='Core Clock(s)'){
+      clock<-remDr$findElement(using = 'xpath','//em[@class="left-desc-cpu"]/p[3]')
+      clocktext<-as.character(clock$getElementText()[1])
+      if(trimws(unlist(strsplit(clocktext, ":"))[[1]])=='Core Clock(s)'){
       clocktext<-trimws(unlist(strsplit(clocktext,' '))[[3]])
     }
-    else {clocktext = 'NA'}
+      else {clocktext = 'NA'}
       })
     },
-    error = function(e) {
+      error = function(e) {
       'NA'
     }
     )
@@ -125,15 +124,15 @@ b="]/a"
     #============ 
     tryCatch({
       suppressMessages({
-    memclock<-remDr$findElement(using='xpath','//em[@class="left-desc-cpu"]/p[4]')
-    memcltext<-as.character(memclock$getElementText()[1])
-    if(trimws(unlist(strsplit(memcltext,':'))[[1]])=='Memory Clock(s)'){
+      memclock<-remDr$findElement(using='xpath','//em[@class="left-desc-cpu"]/p[4]')
+      memcltext<-as.character(memclock$getElementText()[1])
+      if(trimws(unlist(strsplit(memcltext,':'))[[1]])=='Memory Clock(s)'){
       memcltext<-trimws(unlist(strsplit(memcltext,' '))[[3]])
     }
-    else {memcltext = 'NA'}
+      else {memcltext = 'NA'}
     })
     },
-    error = function(e) {
+      error = function(e) {
     'NA'
     }
     )
@@ -142,15 +141,15 @@ b="]/a"
     #============ 
     tryCatch({
       suppressMessages({
-    vidcat<-remDr$findElement(using='xpath','//div[@class="desc-foot"]/p[1]')
-    vidcattext<-as.character(vidcat$getElementText()[1])
-    if(trimws(unlist(strsplit(vidcattext, ":"))[[1]])=='Videocard Category'){
+      vidcat<-remDr$findElement(using='xpath','//div[@class="desc-foot"]/p[1]')
+      vidcattext<-as.character(vidcat$getElementText()[1])
+      if(trimws(unlist(strsplit(vidcattext, ":"))[[1]])=='Videocard Category'){
       vidcattext<-trimws(unlist(strsplit(vidcattext,' '))[[3]])
     }
-    else {vidcattext = 'NA'}
+      else {vidcattext = 'NA'}
       })
     },
-    error = function(e) {
+      error = function(e) {
       'NA'
     }
     )
@@ -159,15 +158,15 @@ b="]/a"
     #============ 
     tryCatch({
       suppressMessages({
-    price<-remDr$findElement(using='xpath','//div[@class="desc-foot"]/p[4]')
-    pricetext<-as.character(price$getElementText()[1])
-    if(trimws(unlist(strsplit(pricetext, ":"))[[1]])=='G3DMark/Price'){
+      price<-remDr$findElement(using='xpath','//div[@class="desc-foot"]/p[4]')
+      pricetext<-as.character(price$getElementText()[1])
+      if(trimws(unlist(strsplit(pricetext, ":"))[[1]])=='G3DMark/Price'){
       pricetext<-trimws(unlist(strsplit(pricetext,' '))[[2]])
     }
-    else {pricetext = 'NA'}
+      else {pricetext = 'NA'}
       })
     },
-    error = function(e) {
+      error = function(e) {
       'NA'
     }
     )
