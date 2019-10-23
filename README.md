@@ -1,5 +1,5 @@
 # Web Scrapping using RSelenium
-This is a small project about scrapping records from a website using RSelenium
+
 ![selenium](https://user-images.githubusercontent.com/54467567/67434822-8707df00-f5b0-11e9-9073-46e9ad1db2a0.jpeg)
 
 The R script contains code to use RSelenium package in R. It presents the technique to connect to the remote server by creating a driver. 
